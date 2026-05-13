@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ByteCare Pro | Professional Computer Service</title>
+    <!-- Google Fonts + Simple CSS Reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fc;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header & navigation */
+        .navbar {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1a4a5f 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        }
+
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #ffcd7e;
+            color: #ffefcf;
+        }
+
+        /* hero section */
+        .hero {
+            background: linear-gradient(105deg, #e9f2f5 0%, #ffffff 100%);
+            padding: 3.5rem 0 2.5rem 0;
+            border-bottom: 1px solid #d4e2e9;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f3b48, #1f6e8c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #2c4b5e;
+            margin-bottom: 1.5rem;
+        }
+        .btn-cta {
+            display: inline-block;
+            background: #1f6e8c;
+            color: white;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .btn-cta:hover {
+            background: #0e4e66;
+            transform: translateY(-2px);
+        }
+
+        /* section general */
+        .section {
+            padding: 3.5rem 0;
+            border-bottom: 1px solid #dfeaf0;
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #144d5e;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #ffb347;
+            border-radius: 4px;
+        }
+
+        /* price table */
+        .price-table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            background: white;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            min-width: 480px;
+        }
+        .price-table th {
+            background-color: #1f5e77;
+            color: white;
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .price-table td {
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid #e2edf2;
+            color: #1f3d4a;
+        }
+        .price-table tr:last-child td {
+            border-bottom: none;
+        }
+        .price-table tr:hover td {
+            background-color: #f8fefd;
+        }
+        .price-highlight {
+            font-weight: 700;
+            color: #1a6c52;
+        }
+        .note {
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            color: #5f7f8f;
+            background: #eef3f7;
+            padding: 0.6rem 1rem;
+            border-radius: 28px;
+            display: inline-block;
+        }
+
+        /* about + contact grid */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .info-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+            border: 1px solid #e0eff5;
+        }
+        .info-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #1e5d72;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-card p, .info-card address {
+            font-style: normal;
+            color: #2c5062;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .contact-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .contact-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-list li span:first-child {
+            font-weight: 600;
+            min-width: 70px;
+            color: #0e4e66;
+        }
+        .map-placeholder {
+            background: #dbeef5;
+            border-radius: 24px;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+            border: 1px solid #c6dce6;
+        }
+        .map-sim {
+            background: #c6dfea;
+            border-radius: 20px;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: #2d5b6e;
+            font-weight: 500;
+        }
+
+        /* location section extras */
+        .location-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 28px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .location-address {
+            flex: 1;
+        }
+        .badge-hours {
+            background: #eef3f0;
+            padding: 1rem;
+            border-radius: 24px;
+            min-width: 180px;
+        }
+        .badge-hours strong {
+            display: block;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: #0b2a33;
+            color: #bbd4df;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 780px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .nav-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+        .icon-em {
+            font-size: 1.3rem;
+        }
+        hr {
+            margin: 1rem 0;
+            border-color: #e0edf2;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <h1>⚡ ByteCare Pro</h1>
+            <p>Professional Computer Repair & Service</p>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#prices">Prices</a>
+            <a href="#contact">Contact</a>
+            <a href="#location">Location</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container hero-content">
+        <h2>Fast, Reliable & Affordable</h2>
+        <p>Diagnostics, repairs, upgrades — We bring your devices back to life. <br> Same-day service available for most issues.</p>
+        <a href="#contact" class="btn-cta">📞 Book a free diagnostic →</a>
+    </div>
+</section>
+
+<!-- ABOUT US SECTION -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">🔧 About Us</h2>
+        <div class="grid-2col">
+            <div class="info-card">
+                <h3>💡 Your local tech partners</h3>
+                <p>Founded in 2015, ByteCare Pro has grown into a trusted computer service hub. Our certified technicians have over 15 years of combined experience in hardware, software, networking, and data recovery.</p>
+                <p>We believe in transparent pricing, no hidden fees, and clear communication. Whether it’s a slow laptop, virus removal, or building a custom gaming PC — we treat every machine with care.</p>
+                <p>⭐ <strong>500+ 5-star reviews</strong> &nbsp;| &nbsp;🔒 100% data privacy guarantee</p>
+            </div>
+            <div class="info-card">
+                <h3>🏆 Why choose us?</h3>
+                <ul style="margin-left: 1.2rem; color:#2c5062; line-height:1.6;">
+                    <li>✅ Free diagnostic with any repair</li>
+                    <li>✅ 90-day warranty on parts & labor</li>
+                    <li>✅ On-site & remote support options</li>
+                    <li>✅ Affordable rates for students & seniors</li>
+                    <li>✅ Genuine components & fast turnaround</li>
+                </ul>
+                <p style="margin-top: 1rem;">We are Microsoft Certified Partners and members of the Computer Repair Association.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICE LIST TABLE -->
+<section id="prices" class="section">
+    <div class="container">
+        <h2 class="section-title">💰 Service Price List</h2>
+        <div class="price-table-wrapper">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Service</th><th>Description</th><th>Price (USD)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>🖥️ Diagnostic Test</td><td>Full hardware & software check, includes report</td><td class="price-highlight">$0 *Free with repair</td></tr>
+                    <tr><td>💻 Virus & Malware Removal</td><td>Deep scan, removal & security optimization</td><td class="price-highlight">$59</td></tr>
+                    <tr><td>⚙️ PC/Laptop Tune-Up</td><td>Cleanup, update drivers, improve startup speed</td><td class="price-highlight">$79</td></tr>
+                    <tr><td>🔧 Hardware Installation</td><td>RAM, SSD, GPU, or power supply replacement</td><td class="price-highlight">$49 + parts</td></tr>
+                    <tr><td>🛠️ Data Recovery</td><td>HDD/SSD data extraction (basic to advanced)</td><td class="price-highlight">$89 - $199</td></tr>
+                    <tr><td>📡 OS Reinstall & Setup</td><td>Windows, macOS, Linux installation + drivers</td><td class="price-highlight">$99</td></tr>
+                    <tr><td>🖧 Network & Wi-Fi Fix</td><td>Router config, connectivity issues, home network</td><td class="price-highlight">$69</td></tr>
+                    <tr><td>🎮 Custom PC Building</td><td>Assembly, cable management & stress test</td><td class="price-highlight">$149</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note">⭐ All prices exclude taxes. Free pickup & delivery for orders over $120 (within 5 miles). Ask about our loyalty discount!</div>
+    </div>
+</section>
+
+<!-- CONTACT + LOCATION combined row? but we keep separate with id -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">📞 Contact Us</h2>
+        <div class="grid-2col">
+            <div class="info-card">
+                <h3>✉️ Get in touch</h3>
+                <ul class="contact-list">
+                    <li><span>📞 Phone:</span> <span>(555) 782-3396</span></li>
+                    <li><span>📧 Email:</span> <span>support@bytecarepro.com</span></li>
+                    <li><span>💬 Live chat:</span> <span>Mon-Fri 9AM - 6PM</span></li>
+                    <li><span>📠 Fax:</span> <span>(555) 782-3301</span></li>
+                </ul>
+                <hr>
+                <p><strong>Business hours:</strong><br>
+                Monday – Friday: 9:00 AM – 7:00 PM<br>
+                Saturday: 10:00 AM – 4:00 PM<br>
+                Sunday: Closed (emergency remote only)</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 Social & support</h3>
+                <p>Follow us for tips, promotions, and PC news:</p>
+                <div style="display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap:wrap;">
+                    <span style="background:#eef2f5; padding:6px 14px; border-radius:30px;">🐦 Twitter</span>
+                    <span style="background:#eef2f5; padding:6px 14px; border-radius:30px;">📘 Facebook</span>
+                    <span style="background:#eef2f5; padding:6px 14px; border-radius:30px;">📸 Instagram</span>
+                </div>
+                <p style="margin-top: 1.5rem;">📲 <strong>Remote Support:</strong> Get help via TeamViewer or AnyDesk — just call to schedule.</p>
+                <div class="map-placeholder">
+                    <div class="map-sim">
+                        🗺️ <strong>Visit our main workshop</strong><br>
+                        123 Tech Avenue, Suite 200<br>
+                        Silicon Valley, CA 94025
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION SECTION (dedicated with more details and embedded style map & direction) -->
+<section id="location" class="section">
+    <div class="container">
+        <h2 class="section-title">📍 Our Location</h2>
+        <div class="location-details">
+            <div class="location-address">
+                <h3 style="color:#1a5d6e; margin-bottom: 6px;">🏢 ByteCare Pro Service Hub</h3>
+                <address style="font-style: normal; line-height: 1.6;">
+                    123 Tech Avenue, Suite 200<br>
+                    Silicon Valley, CA 94025<br>
+                    United States<br>
+                    <span style="display: inline-block; margin-top: 12px;">📞 (555) 782-3396</span>
+                </address>
+                <p style="margin-top: 16px;">🅿️ Free parking available at rear entrance. Wheelchair accessible.</p>
+                <a href="#" style="color:#1f6e8c; font-weight:500;">📌 Get directions (Google Maps) →</a>
+            </div>
+            <div class="badge-hours">
+                <strong>🕒 Workshop service hours:</strong>
+                <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
+                    <li>Mon - Fri: 9:00 – 19:00</li>
+                    <li>Sat: 10:00 – 16:00</li>
+                    <li>Sun: Closed</li>
+                </ul>
+                <strong style="margin-top: 10px; display:block;">🚚 Pickup/Dropoff:</strong>
+                <span>Available during hours. Fast lane for pre-booked appointments.</span>
+            </div>
+        </div>
+        <!-- interactive static map representation (styled) -->
+        <div style="margin-top: 2rem; background: #cde3ec; border-radius: 28px; overflow: hidden; border: 1px solid #b5d2e0;">
+            <div style="background: #9ec3d4; padding: 1rem 1.5rem; display: flex; justify-content: space-between; flex-wrap:wrap; gap: 10px;">
+                <span>📍 <strong>Static map preview</strong> — Downtown Tech District</span>
+                <span>🚌 Bus stop: 2 min walk | 🚇 Metro: TechSquare station</span>
+            </div>
+            <div style="padding: 12px; background: #fefefe;">
+                <svg width="100%" height="140" viewBox="0 0 600 90" preserveAspectRatio="none" style="background: #eef2f6; border-radius: 18px;">
+                    <rect width="600" height="90" fill="#d9e7ef" rx="12" ry="12" />
+                    <circle cx="150" cy="45" r="8" fill="#e05a4f" stroke="white" stroke-width="2" />
+                    <text x="110" y="30" font-size="8" fill="#1f4d5e">Market St</text>
+                    <rect x="260" y="40" width="70" height="12" fill="#4196b0" rx="4" />
+                    <text x="268" y="49" font-size="7" fill="white">BYTECARE</text>
+                    <circle cx="410" cy="45" r="5" fill="#f4b942" />
+                    <text x="380" y="70" font-size="7" fill="#2a4f60">Tech Blvd</text>
+                    <text x="50" y="78" font-size="8" fill="#1d5a70">★ You are here</text>
+                </svg>
+                <p style="font-size: 0.75rem; margin-top: 12px; color: #2e6b80;">Interactive map reference: Located at the corner of Tech Ave and Innovation Dr. We’re inside the TechPlex building across from Coffee Planet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick review / trust badges optional -->
+<section style="background: #e2f0f5; padding: 1.8rem 0;">
+    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+        <span>🔒 Secure & Confidential</span>
+        <span>⚡ Fast turnaround (80% of repairs < 24h)</span>
+        <span>🏆 Certified professionals</span>
+        <span>💳 Credit cards & PayPal accepted</span>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ByteCare Pro – Computer Repair & IT Solutions. All trademarks belong to their respective owners.</p>
+        <p style="margin-top: 6px;">📍 Serving Bay Area & remote nationwide | <a href="#" style="color:#b8dfed;">Privacy Policy</a> | <a href="#" style="color:#b8dfed;">Terms of Service</a></p>
+    </div>
+</footer>
+
+<!-- small smooth scroll js (just for anchor links) -->
+<script>
+    document.querySelectorAll('.nav-links a, .btn-cta').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+    // extra for the "Get directions" mock link: just don't jump
+    const dirLink = document.querySelector('a[href="#"]');
+    if(dirLink && dirLink.textContent.includes("Get directions")) {
+        dirLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("🔍 Google Maps integration ready: 123 Tech Avenue, CA 94025 — real link would open navigation");
+        });
+    }
+</script>
+</body>
+</html>
